@@ -39,8 +39,8 @@ class AuthController extends Controller
     public function login(LoginRequest $request): JsonResponse
     {
         if (! Auth::attempt($request->validated())) {
-            throw ValidationException::withMessage([
-                'email' => _('auth.failed'),
+            throw ValidationException::withMessages([
+                'email' => __('auth.failed'),
             ]);
         }
 
